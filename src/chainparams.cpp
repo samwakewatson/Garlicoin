@@ -132,6 +132,7 @@ public:
         //vSeeds.emplace_back("dnsseed.brennanmcdonald.io");
         vSeeds.emplace_back("dnsseed.rshaw.space");
         vSeeds.emplace_back("dnsseed.garli.co.in");
+        vSeeds.emplace_back("dnsseed.garlicoin.network");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,38);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,50);
