@@ -86,7 +86,7 @@ leveldb_libleveldb_a_SOURCES += leveldb/util/histogram.h
 leveldb_libleveldb_a_SOURCES += leveldb/util/coding.h
 leveldb_libleveldb_a_SOURCES += leveldb/util/testutil.h
 leveldb_libleveldb_a_SOURCES += leveldb/util/mutexlock.h
-leveldb_libleveldb_a_SOURCES += leveldb/util/logging.h
+leveldb_libleveldb_a_SOURCES += leveldb/util/util.h
 leveldb_libleveldb_a_SOURCES += leveldb/util/testharness.h
 
 leveldb_libleveldb_a_SOURCES += leveldb/db/builder.cc

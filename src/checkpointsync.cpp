@@ -48,7 +48,7 @@
 
 #include <chainparams.h>
 #include <base58.h>
-#include <logging.h>
+#include <util.h>
 #include <netmessagemaker.h>
 #include <txdb.h>
 #include <validation.h>
