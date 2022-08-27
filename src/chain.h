@@ -216,6 +216,9 @@ public:
     //! (memory only) Sequential id assigned to distinguish order in which blocks are received.
     int32_t nSequenceId;
 
+    //! (memory only) block header metadata
+    uint64_t nTimeReceived = 0;
+    
     //! (memory only) Maximum nTime in the chain up to and including this block.
     unsigned int nTimeMax;
 
@@ -233,11 +236,13 @@ public:
         nChainTx = 0;
         nStatus = 0;
         nSequenceId = 0;
+        nTimeReceived = 0;
         nTimeMax = 0;
 
         nVersion       = 0;
         hashMerkleRoot = uint256();
         nTime          = 0;
+        nTimeReceived  = 0;
         nBits          = 0;
         nNonce         = 0;
     }
@@ -309,6 +314,16 @@ public:
         return (int64_t)nTimeMax;
     }
 
+    int64_t GetHeaderReceivedTime() const
+    {
+        return nTimeReceived;
+    }
+
+    int64_t GetReceivedTimeDiff() const
+    {
+        return GetHeaderReceivedTime() - GetBlockTime();
+    }
+    
     static constexpr int nMedianTimeSpan = 11;
 
     int64_t GetMedianTimePast() const
@@ -369,7 +384,8 @@ arith_uint256 GetBlockProof(const CBlockIndex& block);
 int64_t GetBlockProofEquivalentTime(const CBlockIndex& to, const CBlockIndex& from, const CBlockIndex& tip, const Consensus::Params&);
 /** Find the forking point between two chain tips. */
 const CBlockIndex* LastCommonAncestor(const CBlockIndex* pa, const CBlockIndex* pb);
-
+/** Check if two block index are on the same fork. */
+bool AreOnTheSameFork(const CBlockIndex *pa, const CBlockIndex *pb);
 
 /** Used to marshal pointers into hashes for db storage. */
 class CDiskBlockIndex : public CBlockIndex
