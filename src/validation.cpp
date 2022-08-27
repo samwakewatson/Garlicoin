@@ -2333,7 +2333,8 @@ public:
 };
 
 static bool FinalizeBlockInternal(CValidationState &state, const CBlockIndex *pindex)
-    EXCLUSIVE_LOCKS_REQUIRED(cs_main) {
+    // EXCLUSIVE_LOCKS_REQUIRED(cs_main)
+{
     AssertLockHeld(cs_main);
     if (pindex->nStatus & BLOCK_FAILED_MASK) {
         // We try to finalize an invalid block.
@@ -2364,7 +2365,8 @@ static bool FinalizeBlockInternal(CValidationState &state, const CBlockIndex *pi
 }
 
 static const CBlockIndex *FindBlockToFinalize(CBlockIndex *pindexNew)
-    EXCLUSIVE_LOCKS_REQUIRED(cs_main) {
+    // EXCLUSIVE_LOCKS_REQUIRED(cs_main)
+{
     AssertLockHeld(cs_main);
 
     const int32_t maxreorgdepth =
