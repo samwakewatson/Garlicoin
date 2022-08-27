@@ -1700,6 +1700,8 @@ static const CRPCCommand commands[] =
     { "blockchain",         "preciousblock",          &preciousblock,          {"blockhash"} },
 
     /* Not shown in help */
+    { "hidden",             "getfinalizedblockhash",  &getfinalizedblockhash,  {} },
+    { "hidden",             "finalizeblock",          &finalizeblock,          {"blockhash"} },
     { "hidden",             "invalidateblock",        &invalidateblock,        {"blockhash"} },
     { "hidden",             "reconsiderblock",        &reconsiderblock,        {"blockhash"} },
     { "hidden",             "waitfornewblock",        &waitfornewblock,        {"timeout"} },
