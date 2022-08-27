@@ -454,18 +454,16 @@ bool ResetBlockFailureFlags(CBlockIndex *pindex);
  * A finalized block can not be reorged in any way.
  */
 bool FinalizeBlockAndInvalidate(CValidationState &state, CBlockIndex *pindex) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
-const CBlockIndex *GetFinalizedBlock();
 
 /**
  * Retrieve the topmost finalized block.
  */
-const CBlockIndex *GetFinalizedBlock() EXCLUSIVE_LOCKS_REQUIRED(cs_main);
+const CBlockIndex *GetFinalizedBlock();  // EXCLUSIVE_LOCKS_REQUIRED(cs_main)
 
 /**
  * Checks if a block is finalized.
  */
-bool IsBlockFinalized(const CBlockIndex *pindex)
-    EXCLUSIVE_LOCKS_REQUIRED(cs_main);
+bool IsBlockFinalized(const CBlockIndex *pindex);  // EXCLUSIVE_LOCKS_REQUIRED(cs_main);
 
 
 /** The currently-connected chain of blocks (protected by cs_main). */
