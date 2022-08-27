@@ -47,7 +47,7 @@
 #include <checkpointsync.h>
 
 #include <chainparams.h>
-#include <key_io.h>
+#include <base58.h>
 #include <logging.h>
 #include <netmessagemaker.h>
 #include <txdb.h>
