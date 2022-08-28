@@ -85,7 +85,6 @@ BITCOIN_TESTS =\
   test/versionbits_tests.cpp \
   test/uint256_tests.cpp \
   test/util_tests.cpp \
-  test/btg_tests.cpp \
   test/finalization_tests.cpp
 
 if ENABLE_WALLET
