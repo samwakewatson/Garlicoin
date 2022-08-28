@@ -265,6 +265,12 @@ namespace {
     std::set<int> setDirtyFileInfo;
 } // anon namespace
 
+CBlockIndex* LookupBlockIndex(const uint256& hash)
+{
+    BlockMap::iterator it = mapBlockIndex.find(hash);
+    return it == mapBlockIndex.end() ? nullptr : it->second;
+}
+
 CBlockIndex* FindForkInGlobalIndex(const CChain& chain, const CBlockLocator& locator)
 {
     // Find the first block the caller has in the main chain
